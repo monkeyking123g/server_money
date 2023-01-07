@@ -7,7 +7,13 @@ const multer = require("multer");
 const app = express();
 const PORT = 3002;
 
-app.use(cors());
+const corsOptions = {
+  origin: "https://server-money-e5my84t0d-dimaipatii1994-gmailcom.vercel.app/",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 app.use("/uploads", express.static("uploads"));
