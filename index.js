@@ -8,7 +8,7 @@ const app = express();
 const PORT = 3002;
 
 const corsOptions = {
-  origin: "https://server-money-e5my84t0d-dimaipatii1994-gmailcom.vercel.app/",
+  origin: "http://localhost:3000",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
@@ -23,8 +23,8 @@ var fileFilter = function (req, file, cb) {
     cb(null, false);
     return;
   }
-  cb(null, false); //commit
-  return;
+  cb(null, true); //commit
+
 };
 
 // multer
@@ -48,8 +48,8 @@ app.post("/upload", upload.single("image"), (req, res) => {
   //console.log(req.file)
   let image_url;
   if (req.file) {
-    // image_url = req.file.path.replace("\\", "/");
-    image_url = req.file.path
+    image_url = req.file.path.replace("\\", "/");
+    // image_url = req.file.path
   } else {
     image_url = "";
   }
@@ -66,7 +66,7 @@ app.post("/upload", upload.single("image"), (req, res) => {
       res.send(result);
     }
   );
-  res.send(`User created [OK]$`);
+  // res.send(`User created [OK]$`);
 });
 // Sign In User
 app.get("/api/get/user", (req, res) => {
