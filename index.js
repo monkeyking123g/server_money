@@ -8,7 +8,7 @@ const app = express();
 const PORT = 3002;
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://time-money-4mc7esz5e-dimaipatii1994-gmailcom.vercel.app/",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
