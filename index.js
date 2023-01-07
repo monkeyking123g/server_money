@@ -46,7 +46,7 @@ app.get("/upload", (req, res) => {
   res.render("public");
 });
 // Login User
-app.post("/upload", upload.single("image"), (req, res) => {
+app.post("/upload", upload.single("image"), (err,req, res) => {
   console.log(req.file)
   let image_url;
   if (req.file) {
@@ -68,6 +68,7 @@ app.post("/upload", upload.single("image"), (req, res) => {
       res.send(result);
     }
   );
+  res.render('error', { error: err });
   // res.send(`User created [OK]$`);
 });
 // Sign In User
