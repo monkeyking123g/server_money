@@ -9,7 +9,7 @@ const PORT = 3002;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname + "/public"));
+// app.use(express.static(__dirname + "/public"));
 app.use("/public", express.static("public"));
 
 app.use((req, res, next) => {
@@ -46,7 +46,7 @@ app.get("/upload", (req, res) => {
   res.render("public");
 });
 // Login User
-app.post("/upload", upload.single("image"), (err,req, res) => {
+app.post("/upload", upload.single("image"), (req, res) => {
   console.log(req.file)
   let image_url;
   if (req.file) {
@@ -68,7 +68,7 @@ app.post("/upload", upload.single("image"), (err,req, res) => {
       res.send(result);
     }
   );
-  res.render('error', { error: err });
+ 
   // res.send(`User created [OK]$`);
 });
 // Sign In User
