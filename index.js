@@ -47,7 +47,8 @@ app.post("/upload", upload.single("image"), (req, res) => {
   //console.log(req.file)
   let image_url;
   if (req.file) {
-    image_url = req.file.path.replace("\\", "/");
+    // image_url = req.file.path.replace("\\", "/");
+    image_url = req.file.path
   } else {
     image_url = "";
   }
