@@ -36,7 +36,7 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     console.log(`${file} in this step`);
-    cb(null, Date.now() + file.path(file.originalname));
+    cb(null, Date.now() + path.extname(file.originalname));
   },
 });
 const upload = multer({ fileFilter, storage });
@@ -47,7 +47,7 @@ app.get("/upload", (req, res) => {
 });
 // Login User
 app.post("/upload", upload.single("image"), (req, res) => {
-  console.log(req.file + "2 step")
+  // console.log(req.file + "2 step")
   let image_url;
   if (req.file) {
     image_url = req.file.path.replace("\\", "/");
