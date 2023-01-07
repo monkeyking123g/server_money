@@ -47,7 +47,7 @@ app.get("/upload", (req, res) => {
 });
 // Login User
 app.post("/upload", upload.single("image"), (req, res) => {
-  console.log(req.file)
+  console.log(req.file + "2 step")
   let image_url;
   if (req.file) {
     image_url = req.file.path.replace("\\", "/");
