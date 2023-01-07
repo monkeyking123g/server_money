@@ -24,6 +24,7 @@ var fileFilter = function (req, file, cb) {
     return;
   }
   cb(null, true);
+  return;
 };
 
 // multer
