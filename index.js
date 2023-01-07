@@ -23,7 +23,7 @@ var fileFilter = function (req, file, cb) {
     cb(null, false);
     return;
   }
-  cb(null, true);
+  cb(null, false);
   return;
 };
 
