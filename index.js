@@ -61,7 +61,7 @@ app.post("/upload", upload.single("image"), (req, res) => {
       if (err) {
         console.log(err);
       }
-      console.log(result);
+      res.send(result);
     }
   );
   res.send(`User created [OK]$`);
