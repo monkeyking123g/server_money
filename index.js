@@ -16,7 +16,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
-app.use("/uploads", express.static("uploads"));
+app.use("/public", express.static("public"));
 
 var fileFilter = function (req, file, cb) {
   if (!file) {
@@ -30,7 +30,7 @@ var fileFilter = function (req, file, cb) {
 // multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads");
+    cb(null, "public");
   },
   filename: (req, file, cb) => {
     console.log(file);
