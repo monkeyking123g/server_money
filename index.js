@@ -9,7 +9,7 @@ const PORT = 3002;
 
 app.use(cors());
 app.use(express.json());
-// app.use(express.static(url + "/public"));
+app.use(express.static(__dirname + "/public"));
 app.use("/public", express.static("public"));
 
 app.use((req, res, next) => {
@@ -43,7 +43,7 @@ const upload = multer({ fileFilter, storage });
 app.set("view engine", "ejs");
 
 app.get("/upload", (req, res) => {
-  res.render("upload");
+  res.render("public");
 });
 // Login User
 app.post("/upload", upload.single("image"), (req, res) => {
