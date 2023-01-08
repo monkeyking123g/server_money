@@ -3,8 +3,7 @@ const db = require("./config/db");
 const cors = require("cors");
 const path = require("path");
 const multer = require("multer");
-const { url } = require("inspector");
-const test = ""
+
 const app = express();
 const PORT = 3002;
 const url  = "https://server-money.vercel.app/"
