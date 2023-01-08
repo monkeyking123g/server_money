@@ -7,7 +7,7 @@ const { url } = require("inspector");
 
 const app = express();
 const PORT = 3002;
-url  = "https://server-money.vercel.app/"
+const url  = "https://server-money.vercel.app/"
 app.use(cors());
 app.use(express.json());
 app.use(express.static(url + "/public"));
