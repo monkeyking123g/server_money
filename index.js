@@ -66,6 +66,7 @@ app.post("/upload", upload.single("image"), (req, res) => {
         console.log(err);
       }
       res.send(result);
+      db.release();
     }
   );
  
@@ -78,6 +79,7 @@ app.get("/api/get/user", (req, res) => {
       console.log(err);
     }
     res.send(result);
+    db.release();
   });
 });
 
@@ -89,6 +91,7 @@ app.get("/api/get/time/:id", (req, res) => {
       console.log(err);
     }
     res.send(result);
+    db.release();
   });
 });
 
@@ -100,6 +103,7 @@ app.get("/api/get/month/:id", (req, res) => {
       console.log(err);
     }
     res.send(result);
+    db.release();
   });
 });
 // Create  time of day
@@ -119,6 +123,7 @@ app.post("/api/create/time/:id", (req, res) => {
         console.log(err);
       }
       res.send(result);
+      db.release();
     }
   );
 });
@@ -135,10 +140,10 @@ app.post("/api/create/month/:id", (req, res) => {
     (err, result) => {
       if (err) {
         console.log(err);
-        res.status(400);
+        
       }
       res.send(result);
-      res.status(200);
+      db.release();
     }
   );
 });
@@ -150,10 +155,10 @@ app.delete("/api/delete/time/:id", (req, res) => {
   db.query("DELETE FROM DayTime WHERE ID= ?", id, (err, result) => {
     if (err) {
       console.log(err);
-      res.status(400);
+    
     }
     res.send(result);
-    res.status(200);
+    db.release();
   });
 });
 app.delete("/api/delete/month/:id", (req, res) => {
@@ -162,10 +167,10 @@ app.delete("/api/delete/month/:id", (req, res) => {
   db.query("DELETE FROM MonthTime WHERE ID= ?", id, (err, result) => {
     if (err) {
       console.log(err);
-      res.status(400);
+      db.release();
     }
     res.send(result);
-    res.status(200);
+    db.release();
   });
 });
 
