@@ -9,16 +9,16 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname + "/public"));
+// app.use(express.static(__dirname + "/public"));
 app.use("/public", express.static("public"));
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header("Access-Control-Allow-Headers","*");
-res.header('Access-Control-Allow-Credentials', true);
-res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header("Access-Control-Allow-Headers","*");
+// res.header('Access-Control-Allow-Credentials', true);
+// res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//   next();
+// });
 
 var fileFilter = function (req, file, cb) {
   if (!file) {
