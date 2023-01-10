@@ -67,7 +67,7 @@ app.post("/upload", upload.single("image"), (req, res) => {
       }
       res.send(result);
     });
-  db.release();
+ 
  
   // res.send(`User created [OK]$`);
 });
@@ -80,7 +80,7 @@ app.get("/api/get/user", (req, res) => {
     res.send(result);
    
   });
-  db.release();
+  
 });
 
 // Get day time from user
@@ -92,7 +92,7 @@ app.get("/api/get/time/:id", (req, res) => {
     }
     res.send(result);
   });
-  db.release();
+ 
 });
 
 // Get month time from user
@@ -104,7 +104,7 @@ app.get("/api/get/month/:id", (req, res) => {
     }
     res.send(result);
   });
-  db.release();
+ 
 });
 // Create  time of day
 app.post("/api/create/time/:id", (req, res) => {
@@ -125,7 +125,7 @@ app.post("/api/create/time/:id", (req, res) => {
       res.send(result);
     }
   );
-  db.release();
+ 
 });
 // Create  time of year
 app.post("/api/create/month/:id", (req, res) => {
@@ -146,7 +146,7 @@ app.post("/api/create/month/:id", (req, res) => {
      
     }
   );
-  db.release();
+ 
 });
 
 // Delete SQl Query
@@ -160,7 +160,7 @@ app.delete("/api/delete/time/:id", (req, res) => {
     res.send(result);
     
   });
-  db.release();
+  
 });
 app.delete("/api/delete/month/:id", (req, res) => {
   const id = req.params.id;
@@ -171,7 +171,7 @@ app.delete("/api/delete/month/:id", (req, res) => {
     }
     res.send(result);
   });
-  db.release();
+ 
 });
 
 app.listen(PORT, () => {
