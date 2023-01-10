@@ -43,10 +43,12 @@ const upload = multer({ fileFilter, storage });
 app.set("view engine", "ejs");
 
 app.get("/upload", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   res.render("public");
 });
 // Login User
 app.post("/upload", upload.single("image"), (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   // console.log(req.file + "2 step")
   let image_url;
   if (req.file) {
@@ -73,6 +75,7 @@ app.post("/upload", upload.single("image"), (req, res) => {
 });
 // Sign In User
 app.get("/api/get/user", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   db.query("SELECT * FROM user;", (err, result) => {
     if (err) {
       console.log(err);
@@ -85,6 +88,7 @@ app.get("/api/get/user", (req, res) => {
 
 // Get day time from user
 app.get("/api/get/time/:id", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   const id = req.params.id;
   db.query("SELECT * FROM DayTime WHERE id_user = ?", id, (err, result) => {
     if (err) {
@@ -97,6 +101,7 @@ app.get("/api/get/time/:id", (req, res) => {
 
 // Get month time from user
 app.get("/api/get/month/:id", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   const id = req.params.id;
   db.query("SELECT * FROM MonthTime WHERE id_user = ?", id, (err, result) => {
     if (err) {
@@ -108,6 +113,7 @@ app.get("/api/get/month/:id", (req, res) => {
 });
 // Create  time of day
 app.post("/api/create/time/:id", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   const id = req.params.id;
   const company = req.body.companyName;
   const start = req.body.startHour;
@@ -129,6 +135,7 @@ app.post("/api/create/time/:id", (req, res) => {
 });
 // Create  time of year
 app.post("/api/create/month/:id", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   const id = req.params.id;
   const month = req.body.month;
   const total = req.body.hoursDone;
@@ -151,6 +158,7 @@ app.post("/api/create/month/:id", (req, res) => {
 
 // Delete SQl Query
 app.delete("/api/delete/time/:id", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   const id = req.params.id;
 
   db.query("DELETE FROM DayTime WHERE ID= ?", id, (err, result) => {
@@ -163,6 +171,7 @@ app.delete("/api/delete/time/:id", (req, res) => {
   
 });
 app.delete("/api/delete/month/:id", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   const id = req.params.id;
 
   db.query("DELETE FROM MonthTime WHERE ID= ?", id, (err, result) => {
