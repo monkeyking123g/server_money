@@ -12,11 +12,12 @@
 
 const mysql = require('mysql')
 const db = mysql.createConnection({
-host: "containers-us-west-63.railway.app",
+host: "containers-us-west-182.railway.app",
 // port: 6229,
 user: "root",
-password: "f8WvfTI9xB4wiPVGVBYF",
+password: "6HYgKnxOv3oDJbRL8apl",
 database:"railway",
+connectionLimit: 10 
 })
 
 module.exports = db;
